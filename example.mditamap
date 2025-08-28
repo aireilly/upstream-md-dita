@@ -1,0 +1,9 @@
+---
+$schema: urn:oasis:names:tc:dita:xsd:map.xsd
+---
+
+# Example mditamap
+
+- [NUMA resource scheduling strategies](docs/concept-numa-scheduling-strategies.md) <!-- Titles can be empty  -->
+- [Installing the NUMA Resources Operator using the CLI](docs/task-installing-nro.md)
+- [About root device hints](docs/reference-root-device-hints.md)

@@ -1,0 +1,55 @@
+# .github/workflows/dita-ot-release.yml
+name: Build DITA-OT and release
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Install DITA-OT
+        run: |
+          DITA_OT_VERSION=4.2
+          curl -sSL -o dita-ot.zip https://github.com/dita-ot/dita-ot/releases/download/${DITA_OT_VERSION}/dita-ot-${DITA_OT_VERSION}.zip
+          unzip -q dita-ot.zip
+          mv dita-ot-${DITA_OT_VERSION} dita-ot
+
+      # - name: Install org.lwdita plugin
+      #   run: |
+      #     ./dita-ot/bin/dita install org.lwdita
+
+      - name: Build HTML5 from example.mditamap
+        run: |
+          ./dita-ot/bin/dita \
+            -i example.mditamap \
+            -f dita \
+            -o build/dita
+
+      - name: Archive output
+        run: |
+          zip -r dita-output.zip build/dita
+
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: release-${{ github.sha }}
+          name: DITA build for ${{ github.sha }}
+          files: dita-output.zip
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
