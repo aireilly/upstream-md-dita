@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://aireilly.github.io/upstream-md-dita/</loc>
+         <lastmod>2025-08-28</lastmod>
+    </url>
+    <url>
+         <loc>https://aireilly.github.io/upstream-md-dita/cnf-provisioning-low-latency-workloads/</loc>
+         <lastmod>2025-08-28</lastmod>
+    </url>
+    <url>
+         <loc>https://aireilly.github.io/upstream-md-dita/concept-numa-scheduling-strategies/</loc>
+         <lastmod>2025-08-28</lastmod>
+    </url>
+    <url>
+         <loc>https://aireilly.github.io/upstream-md-dita/reference-root-device-hints/</loc>
+         <lastmod>2025-08-28</lastmod>
+    </url>
+    <url>
+         <loc>https://aireilly.github.io/upstream-md-dita/task-installing-nro/</loc>
+         <lastmod>2025-08-28</lastmod>
+    </url>
+</urlset>
